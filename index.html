@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="zh-CN" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="毛晓锐的个人简历网站，记录学习经历、创作尝试和个人介绍。" />
+    <meta name="theme-color" content="#0a0a0f" />
+    <meta name="color-scheme" content="dark" />
+    <title>毛晓锐 | 个人简历网站</title>
+    <link rel="preload" as="image" href="./图片3.jpg" />
+    <link rel="preload" as="image" href="./头像1.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+SC:wght@400;600;700;800;900&family=Oswald:wght@500;700&display=swap" />
+    <link rel="stylesheet" href="./styles.css" />
+    <style id="first-paint-fallback">
+      /* Keep the home hero visible before any enhancement script runs. */
+      body:not(.project-panel-open) .hero { display: block !important; visibility: visible !important; opacity: 1 !important; }
+      body:not(.project-panel-open) .project-stage { display: none !important; visibility: hidden !important; }
+    </style>
+  </head>
+  <body class="music-welcome-open">
+    <!-- 首次进入欢迎层：每次刷新都会重新显示，文字可按需修改。 -->
+    <section class="music-welcome" id="musicWelcome" aria-labelledby="musicWelcomeTitle">
+      <div class="music-welcome-card">
+        <p class="music-welcome-kicker">MXR STUDIO · PERSONAL RESUME</p>
+        <h1 id="musicWelcomeTitle">欢迎来到毛晓锐的个人网站</h1>
+        <p class="music-welcome-subtitle">AI · CODE · VISUAL · 无限进步</p>
+        <button class="music-welcome-enter" id="musicWelcomeEnter" type="button">进入网站 <span aria-hidden="true">↗</span></button>
+      </div>
+    </section>
+    <!-- 背景音乐：文件与 index.html 同级；播放失败时由脚本静默处理。 -->
+    <audio id="backgroundMusic" src="./bgm.mp3" loop autoplay preload="auto"></audio>
+    <button class="music-control" id="musicControl" type="button" title="播放/暂停背景音乐" aria-label="播放背景音乐" aria-pressed="false"><span class="music-control-icon" aria-hidden="true">🔇</span></button>
+    <div class="liquid-ether-background" id="liquidEtherBackground" aria-hidden="true"><canvas></canvas></div>
+    <div class="glow-cursor" id="glowCursor" aria-hidden="true"><canvas></canvas></div>
+    <!-- Hero / 首页首屏 -->
+    <header class="hero" id="home">
+      <div class="hero-spotlight"></div>
+      <div class="hero-shell container">
+        <nav class="top-nav">
+          <a class="xnft-logo" href="#home"><span class="x-mark" aria-hidden="true"></span><span>MXR</span></a>
+          <button class="menu-toggle" type="button" aria-label="打开导航" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span><span></span></button>
+          <div class="nav-core" id="primary-navigation"><a class="active" href="#home" aria-current="page">首页</a><a href="#self-story">个人介绍</a><a href="#ai-certificates">AI证书</a><a href="#projectHub">创作经历</a><a href="#resume-contact">联系方式</a><a href="mailto:3080535481@qq.com">邮箱</a></div>
+          <div class="nav-tools"><a class="support-btn liquid-btn" href="#resume-contact">联系我</a></div>
+        </nav>
+        <div class="hero-content reveal"><div class="hero-kicker"><span class="hero-kicker-dot"></span><span>AI / CODE / VISUAL</span><em>2026</em></div><h1><span class="title-line">毛晓锐</span><span class="title-gradient">无限进步</span></h1><p class="hero-desc">淮南师范学院物理学（师范）专业大一学生。平时喜欢了解 AI，也在尝试用代码和设计把自己的想法做出来。</p><a class="hero-cta liquid-btn" href="#projectHub">看看我做过什么 <span>↗</span></a></div>
+        <section class="nft-stage reveal" aria-label="作品轮播"><div class="stage-light"></div><div class="nft-carousel" id="nftCarousel">
+          <article class="nft-card"><img src="./图片1.png" alt="AI视觉作品" /><div class="card-top-info"><img src="./头像1.jpg" alt="头像" /><div><p>Creator</p><h3>MXR Studio</h3></div></div><div class="card-bottom-info"><div><p>Focus</p><h4>AI × CODE</h4></div><a href="#projectHub">MORE +</a></div></article>
+          <article class="nft-card"><img src="./图片2.jpg" alt="数字肖像作品" /><div class="card-top-info"><img src="./头像1.jpg" alt="头像" /><div><p>Creator</p><h3>MXR Studio</h3></div></div><div class="card-bottom-info"><div><p>Focus</p><h4>VISUAL LAB</h4></div><a href="#projectHub">MORE +</a></div></article>
+          <article class="nft-card"><img src="./图片3.jpg" alt="彩虹视觉作品" /><div class="card-top-info"><img src="./头像1.jpg" alt="头像" /><div><p>Creator</p><h3>MXR Studio</h3></div></div><div class="card-bottom-info"><div><p>Focus</p><h4>INFINITE</h4></div><a href="#projectHub">MORE +</a></div></article>
+          <article class="nft-card"><img src="./图片4.jpg" alt="幻想视觉作品" /><div class="card-top-info"><img src="./头像1.jpg" alt="头像" /><div><p>Creator</p><h3>MXR Studio</h3></div></div><div class="card-bottom-info"><div><p>Focus</p><h4>EXPERIMENT</h4></div><a href="#projectHub">MORE +</a></div></article>
+          <article class="nft-card"><img src="./人工智能初识微认证.png" alt="AI认证作品" /><div class="card-top-info"><img src="./头像1.jpg" alt="头像" /><div><p>Creator</p><h3>MXR Studio</h3></div></div><div class="card-bottom-info"><div><p>Focus</p><h4>LEARNING</h4></div><a href="#projectHub">MORE +</a></div></article>
+        </div><div class="nft-controls"><button class="nft-nav-btn liquid-btn" id="nftPrevBtn" type="button" aria-label="上一张">‹</button><button class="nft-nav-btn liquid-btn" id="nftNextBtn" type="button" aria-label="下一张">›</button></div></section>
+      </div><div class="hero-bottom-fade"></div>
+    </header>
+    <main>
+      <!-- About / 关于我 -->
+      <section class="light-transition"></section>
+      <section class="self-story" id="self-story" aria-labelledby="self-story-title"><div class="self-story-glow" aria-hidden="true"></div><div class="self-story-shell container"><header class="self-story-header reveal"><p class="self-story-index"><span>01</span> / 关于我</p><p class="self-story-label">学习与生活 · 2026</p></header><div class="self-story-layout"><div class="self-story-lead reveal"><p class="self-story-eyebrow">我平时是什么样的人</p><h2 id="self-story-title">对生活保持<span>好奇</span>，<br />也愿意动手试一试。</h2></div><div class="self-story-copy reveal"><p class="self-story-intro">我平时会关注 <strong>AI 的新工具</strong>，也喜欢自己试一试。</p><p>想到什么，我会尽量用 AI、代码或设计把它做出来。做的过程中会遇到不少问题，但边学边改，也能慢慢积累经验。</p><div class="self-story-principle"><span class="self-story-principle-no">01</span><p>保持好奇，认真去做<br /><em>有想法，就试着做出来。</em></p></div></div></div><blockquote class="self-story-quote reveal"><p>任何时候，<span>先相信自己</span>，<br />然后无限进步。</p><footer><span>“无限进步”</span>是我喜欢的博主 Tim 常说的一句话。我也用它提醒自己：不用着急，但不要停下来。</footer></blockquote><div class="self-story-footer reveal"><p>喜欢生活</p><span></span><p>学习 AI</p><span></span><p>继续进步</p></div></div></section>
+      <section class="story-education-transition" aria-hidden="true"></section>
+      <!-- Education / 教育经历 -->
+      <section class="profile-intro container" id="profile-intro"><div class="education-shell reveal"><header class="education-header"><p class="education-tagline"><span class="education-index">02</span><span class="education-tag-text">教育经历</span><span class="education-tag-code">// EDUCATION</span></p><h2 class="education-title">我的学习经历。<span class="education-title-dot"></span></h2></header><article class="education-card"><div class="education-rows"><div class="education-row"><p class="education-label">学校</p><p class="education-value">淮南师范学院</p></div><div class="education-row"><p class="education-label">专业</p><p class="education-value">物理学（师范）</p></div><div class="education-row"><p class="education-label">年级</p><p class="education-value">大一</p></div><div class="education-row"><p class="education-label">现在的状态</p><p class="education-value">上好专业课，也在做一些课外尝试</p></div></div></article></div></section>
+      <section class="profile-transition"></section>
+      <!-- Creative work / 创作经历与三个独立子页入口 -->
+      <section class="light-section container" id="light-philosophy"><div class="project-home-shell" id="projectHomeShell"><div class="intro-quote reveal"><p class="creation-index"><span>03</span> / 创作经历</p><h2>课余时间，我尝试用 AI、代码和设计做了一些作品，也在练习 PPT 设计和内容创作。下面是其中几项。</h2></div><div class="concept-grid project-hub" id="projectHub">
+        <article class="concept-item reveal" data-project-target="ai" tabindex="0" role="button"><span class="concept-number">01</span><h3>创作经历</h3><span class="concept-line"></span><p>AI + 编程</p><p>尝试用 AI 和代码把想法做成网页</p><div class="dev-media tech-media"><div class="tech-thumb is-primary"><img src="./编程1.png" alt="AI+编程创作" /></div></div></article>
+        <article class="concept-item reveal" data-project-target="ppt" tabindex="0" role="button"><span class="concept-number">02</span><h3>创作经历</h3><span class="concept-line"></span><p>PPT 设计</p><p>做过比赛和接单作品，也还在继续学习</p><div class="dev-media ppt-media" data-dir="./assets/images/ppt-design/"><div class="ppt-thumb is-primary"><img src="./assets/images/ppt-design/幻灯片1.PNG" alt="PPT设计作品" /></div></div></article>
+        <article class="concept-item reveal" data-project-target="media" tabindex="0" role="button"><span class="concept-number">03</span><h3>创作经历</h3><span class="concept-line"></span><p>自媒体尝试</p><p>记录学习和生活，也练习内容表达</p><div class="dev-media creator-media"><div class="creator-thumb personal-shot-card"><img src="./douyin1.jpg" alt="自媒体作品" /></div></div></article>
+      </div></div>
+      <div class="project-stage" id="projectStage" aria-hidden="true"><section class="project-panel panel-ai" data-panel="ai"><canvas class="matrix-canvas" id="matrixCanvas" aria-hidden="true"></canvas><button class="panel-back panel-back-green" type="button">&lt; 返回简历</button><div class="panel-inner panel-ai-inner"><header class="ai-heading"><h2 class="panel-title panel-title-display ai-glitch-title" data-text="AI+编程开发者">AI+编程开发者</h2><p class="panel-subtitle panel-subtitle-mono">INTELLIGENT DEVELOPMENT LAB // 2026</p></header><div class="ai-project-list"><article class="ai-project-card"><div class="ai-project-visual"><img src="./编程1.png" alt="动态视觉网站" /></div><div class="ai-card-copy"><p class="ai-card-desc">Gemini + 零前端代码基础 = 动态视觉网站</p><h3>GEMINI DYNAMIC VISUAL WEBSITE</h3></div></article><article class="ai-project-card"><div class="ai-project-visual"><img src="./WorkBuddy.png" alt="私人AI雇员" /></div><div class="ai-card-copy"><p class="ai-card-desc">系统提示词学习 + 固定提示词 = 私人 AI 雇员</p><h3>PERSONAL AI EMPLOYEE</h3></div></article></div></div></section><section class="project-panel panel-ppt" data-panel="ppt"><button class="panel-back panel-back-cyan" type="button">&lt; 返回简历</button><div class="panel-inner panel-ppt-inner"><p class="panel-kicker">VISUAL DESIGN &amp; PRESENTATION</p><h2 class="panel-title panel-title-display glitch-title" data-text="PPT设计者">PPT设计者</h2><div class="ppt-info-cards"><article><h4>接单月入1000元+</h4></article><article><p>侧重竞赛PPT设计，正在学习更多行业的PPT。</p></article></div><div class="ppt-launch"><h3>PPT作品集</h3><p><span>INFINITE CANVAS</span> // <em>PORTFOLIO</em></p><button class="canvas-enter-btn" id="canvasEnterBtn" type="button">进入无限画布</button></div></div><div class="infinite-canvas-overlay" id="infiniteCanvasOverlay" aria-hidden="true"><button class="canvas-close-btn" id="canvasCloseBtn" type="button">&lt; 返回简历</button><div class="canvas-viewport" id="canvasViewport"><div class="canvas-world" id="canvasWorld"></div></div></div></section><section class="project-panel panel-media" data-panel="media"><button class="panel-back panel-back-cyan" type="button">&lt; 返回简历</button><div class="panel-inner panel-media-inner"><div class="projector-zone"><div class="projector-icon"><span class="reel reel-a"></span><span class="reel reel-b"></span><span class="lens"></span></div><div class="projector-beam"></div></div><div class="media-showcase"><p class="panel-kicker panel-kicker-italic">CREATIVE MEDIA &amp; BROADCAST</p><h2 class="panel-title panel-title-display scanline-title">自媒体创作者</h2><div class="phone-gallery"><article class="phone-frame phone-left personal-shot-frame"><img src="./douyin1.jpg" alt="自媒体个人展示图" /></article><article class="phone-frame phone-right"><img src="./douyin2.jpg" alt="抖音主页展示" /></article></div><p class="media-line-cn">起步中Ing / 赛道：AI+大学</p><p class="media-line-en">INITIAL STAGE // AI + CAMPUS</p></div></div></section></div></section>
+      <!-- Tank game / AI编程游戏作品 -->
+      <section class="game-section" id="tank-game" aria-labelledby="tank-game-title">
+        <div class="game-shell container">
+          <header class="game-header reveal">
+            <div>
+              <p class="game-kicker"><span>04</span> / AI 编程游戏作品</p>
+              <h2 id="tank-game-title">让代码开上履带，<br /><span>把每一关都变成新的地形。</span></h2>
+            </div>
+            <p class="game-side-note">TANK BATTLE · BUILT WITH AI<br />32 关闯关 / 无限模式 / 随机道具</p>
+          </header>
+          <div class="game-layout">
+            <figure class="game-video-card reveal">
+              <div class="game-video-wrap">
+                <video controls preload="metadata" playsinline>
+                  <source src="./坦克大战游戏展示.mp4" type="video/mp4" />
+                  当前浏览器不支持视频播放，请直接打开视频文件查看。
+                </video>
+                <span class="game-video-badge">PLAY / TANK LAB</span>
+              </div>
+              <figcaption><span>GAMEPLAY PREVIEW</span><strong>先看一眼战场，再决定从哪条路线突围。</strong></figcaption>
+            </figure>
+            <div class="game-copy reveal">
+              <p class="game-intro">这是我用 AI 辅助编程做的一场坦克大战：不是把坦克放进地图就结束，而是让每一次移动、选择和冒险都能改变下一秒的局面。</p>
+              <div class="game-feature-list">
+                <article><span>01</span><div><h3>32 关闯关模式</h3><p>从熟悉操作开始，逐关增加敌人、路线和空间压力，越往后越需要先观察，再开火。</p></div></article>
+                <article><span>02</span><div><h3>无限模式</h3><p>没有固定终点，只有不断加码的战场。能走多远，取决于临场判断和你还剩多少耐心。</p></div></article>
+                <article><span>03</span><div><h3>随机道具与地图进化</h3><p>道具每局随机出现，地图也会随难度变得更复杂，让同一套操作不必重复同一种答案。</p></div></article>
+              </div>
+              <p class="game-note"><span>MY BUILD NOTE</span>我想练习的不是“把游戏做出来”，而是让规则、反馈和一点点意外，共同长出真正好玩的节奏。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- AI certificates / AI学习与证书记录 -->
+      <section class="certificate-section" id="ai-certificates" aria-labelledby="ai-certificates-title">
+        <div class="certificate-shell container">
+          <header class="certificate-header reveal">
+            <div>
+              <p class="certificate-kicker"><span>05</span> / AI 学习记录</p>
+              <h2 id="ai-certificates-title">把学到的 AI，<span>留下证据。</span></h2>
+            </div>
+            <p class="certificate-side-note">CERTIFICATES · 2026<br />点击图片可放大查看</p>
+          </header>
+          <div class="certificate-intro reveal">
+            <p>我会利用课余时间学习 AI 工具、云计算和相关应用，也会通过课程和考试检验自己的理解。</p>
+            <div class="certificate-stats"><span><strong>15</strong> 份证书</span><i></i><span><strong>AI</strong> 持续学习</span><i></i><span><strong>01</strong> 个方向</span></div>
+          </div>
+          <div class="certificate-feature reveal">
+            <div class="certificate-feature-copy"><p class="certificate-label">代表性证书 / 01</p><h3>人工智能初识微认证</h3><p>从基础概念开始，逐步了解人工智能的应用方式，也让我更愿意继续往下学习。</p><span class="certificate-chip">HUAWEI · MICRO CERTIFICATION</span></div>
+            <button class="certificate-feature-image" type="button" aria-label="放大查看人工智能初识微认证"><img src="./assets/certificates/人工智能初识微认证.png" alt="华为人工智能初识微认证" /></button>
+          </div>
+          <div class="certificate-grid reveal" aria-label="AI证书列表">
+            <button class="certificate-card" type="button"><img src="./assets/certificates/证书1.jpg" alt="人工智能训练师证书" /><span>人工智能训练师</span></button>
+            <button class="certificate-card" type="button"><img src="./assets/certificates/证书2.jpg" alt="AI相关证书 02" /><span>AI 学习证书 02</span></button>
+            <button class="certificate-card" type="button"><img src="./assets/certificates/证书3.jpg" alt="阿里云AI技能认证" /><span>阿里云 AI 技能认证</span></button>
+            <button class="certificate-card" type="button"><img src="./assets/certificates/证书4.jpg" alt="阿里云AI技能认证 04" /><span>阿里云 AI 认证 04</span></button>
+            <button class="certificate-card" type="button"><img src="./assets/certificates/证书5.jpg" alt="阿里云AI技能认证 05" /><span>阿里云 AI 认证 05</span></button>
+            <button class="certificate-card" type="button"><img src="./assets/certificates/证书6.jpg" alt="阿里云AI技能认证 06" /><span>阿里云 AI 认证 06</span></button>
+            <button class="certificate-card" type="button"><img src="./assets/certificates/证书7.jpg" alt="阿里云AI技能认证 07" /><span>阿里云 AI 认证 07</span></button>
+            <button class="certificate-card" type="button"><img src="./assets/certificates/证书8.jpg" alt="阿里云AI技能认证 08" /><span>阿里云 AI 认证 08</span></button>
+            <button class="certificate-card" type="button"><img src="./assets/certificates/证书9.jpg" alt="阿里云AI技能认证 09" /><span>阿里云 AI 认证 09</span></button>
+            <button class="certificate-card" type="button"><img src="./assets/certificates/证书10.jpg" alt="阿里云AI技能认证 10" /><span>阿里云 AI 认证 10</span></button>
+            <button class="certificate-card" type="button"><img src="./assets/certificates/证书11.jpg" alt="阿里云AI技能认证 11" /><span>阿里云 AI 认证 11</span></button>
+            <button class="certificate-card" type="button"><img src="./assets/certificates/证书12.jpg" alt="阿里云AI技能认证 12" /><span>阿里云 AI 认证 12</span></button>
+            <button class="certificate-card" type="button"><img src="./assets/certificates/证书13.jpg" alt="阿里云AI技能认证 13" /><span>阿里云 AI 认证 13</span></button>
+            <button class="certificate-card" type="button"><img src="./assets/certificates/证书14.jpg" alt="AI大学堂认证" /><span>AI 大学堂认证</span></button>
+          </div>
+        </div>
+      </section>
+      <!-- Sports / 运动与锻炼 -->
+      <section class="sports-section" id="sports" aria-labelledby="sports-title">
+        <div class="sports-shell container">
+          <header class="sports-header reveal">
+            <div>
+              <p class="sports-kicker"><span>06</span> / 运动与锻炼</p>
+              <h2 id="sports-title">让身体保持在场，<br /><span>也让热爱有回声。</span></h2>
+            </div>
+            <p class="sports-side-note">SPORTS · RHYTHM · CONSISTENCY<br />在球场和路上，找回自己的节奏</p>
+          </header>
+          <div class="sports-intro reveal">
+            <p>我喜欢篮球，也会打乒乓球，平时尽量抽时间跑步。运动对我来说不是一项需要打卡的任务，而是把脑子里的杂音放下，让身体重新接管一天的方式。</p>
+            <div class="sports-stats"><span><strong>3</strong> 种常做运动</span><i></i><span><strong>∞</strong> 保持热爱</span></div>
+          </div>
+          <div class="sports-grid">
+            <article class="sports-card sports-card-basketball reveal">
+              <div class="sports-card-top"><span class="sports-card-index">01</span><span class="sports-card-label">COURT / TEAM</span></div>
+              <div class="sports-orb" aria-hidden="true">◉</div>
+              <h3>篮球</h3>
+              <p>我喜欢篮球的原因，不只是进球那一刻。一次次折返、卡位和传球，让我学会在混乱里找节奏，也习惯了落后时先把下一回合打好。</p>
+              <span class="sports-card-note">擅长 · 对抗 / 配合 / 找空间</span>
+            </article>
+            <article class="sports-card sports-card-tabletennis reveal">
+              <div class="sports-card-top"><span class="sports-card-index">02</span><span class="sports-card-label">TABLE / FOCUS</span></div>
+              <div class="sports-orb" aria-hidden="true">·</div>
+              <h3>乒乓球</h3>
+              <p>球很小，反馈却很快。判断落点、调整手感、接住下一板，这种短促而密集的专注，让我在快节奏里依然保持清醒。</p>
+              <span class="sports-card-note">喜欢 · 反应 / 变化 / 专注</span>
+            </article>
+            <article class="sports-card sports-card-running reveal">
+              <div class="sports-card-top"><span class="sports-card-index">03</span><span class="sports-card-label">ROAD / SOLO</span></div>
+              <div class="sports-orb" aria-hidden="true">↗</div>
+              <h3>跑步</h3>
+              <p>跑步没有观众，只有呼吸和脚步。跑到最后留下的不只是里程，还有把一件事安静做完的耐心。</p>
+              <span class="sports-card-note">坚持 · 呼吸 / 节奏 / 完成</span>
+            </article>
+          </div>
+          <div class="sports-footnote reveal"><span>MY TRAINING NOTE</span><p>不追求每次都刷新纪录，先让下一次出发变得自然。</p></div>
+        </div>
+      </section>
+      <section class="creation-thanks-transition" aria-hidden="true"></section>
+      <!-- Thanks / 特别鸣谢 -->
+      <section class="special-thanks" id="special-thanks" aria-labelledby="special-thanks-title"><div class="special-thanks-shell container"><header class="special-thanks-header reveal"><p class="special-thanks-kicker"><span>07</span> / 特别鸣谢</p><h2 id="special-thanks-title">特别鸣谢<span>——</span>浪尖儿社区<i>。</i></h2><p class="special-thanks-summary">加入浪尖儿社区后，我接触到了不少课堂之外的内容，比如 <strong>AI 工具、实习准备、PPT 设计、视频剪辑和自媒体运营</strong>。社区里的分享也让我开始认真思考怎样安排大学生活、怎样与人沟通，以及以后想往哪个方向努力。</p></header><figure class="special-thanks-visual reveal"><div class="special-thanks-meta" aria-hidden="true"><span>浪尖儿社区</span><span>一起学习 · 一起成长</span></div><div class="special-thanks-image"><img src="./浪尖儿.jpg" alt="浪尖儿社区介绍海报" /></div><figcaption><p>谢谢社区里认真分享经验、愿意回答问题的每一位伙伴。</p><span>课堂之外，也有很多值得学习的事。</span></figcaption></figure></div></section>
+    </main>
+    <!-- Contact / 联系方式 -->
+    <footer class="footer" id="resume-contact"><div class="container footer-inner"><div class="footer-contact-layout"><div class="footer-contact-copy"><h2>毛晓锐 · 无限进步</h2><p>这里记录了我的学习经历、创作尝试和一些还在继续完善的想法。谢谢老师和同学看到这里。</p><div class="resume-meta"><span>淮南师范学院 · 物理学（师范）</span><span>AI 与编程</span><span>PPT 设计</span><span>自媒体尝试</span></div><div class="footer-links"><a href="tel:13685693697">13685693697</a><a href="mailto:3080535481@qq.com">3080535481@qq.com</a><a href="https://weixin.qq.com/" target="_blank" rel="noreferrer">微信：MXR--0821</a></div></div><figure class="footer-qr reveal"><div class="footer-qr-frame"><img src="./photo.jpg" alt="毛晓锐的微信二维码" /><span class="footer-qr-stamp">SCAN / SAY HI</span></div><figcaption><strong>一起探索，别只停在路过。</strong><span>扫码加个好友，聊聊你正在做的事。</span></figcaption></figure></div><p class="copyright">© 2026 毛晓锐</p></div></footer>
+    <script src="./liquid-ether.js"></script><script src="./glow-cursor.js"></script><script src="./script.js"></script><script src="./js/main.js"></script><script src="./bgm.js"></script>
+  </body>
+</html>
