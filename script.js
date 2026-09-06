@@ -6,11 +6,36 @@
   var toggle = document.querySelector(".menu-toggle");
   var navLinks = document.querySelectorAll(".top-nav a");
   if (nav && toggle) {
+    function closeMobileNav(restoreFocus) {
+      if (!nav.classList.contains("open")) return;
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "打开导航");
+      if (restoreFocus && window.matchMedia("(max-width: 767px)").matches) {
+        toggle.focus({ preventScroll: true });
+      }
+    }
+
     toggle.addEventListener("click", function () {
       var isOpen = nav.classList.toggle("open");
       toggle.setAttribute("aria-expanded", String(isOpen));
       toggle.setAttribute("aria-label", isOpen ? "关闭导航" : "打开导航");
     });
+
+    // Treat the compact navigation as a temporary layer. Escape, an outside
+    // tap, or moving back to the desktop breakpoint closes it cleanly.
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") closeMobileNav(true);
+    });
+    document.addEventListener("click", function (event) {
+      if (!nav.classList.contains("open") || nav.contains(event.target)) return;
+      closeMobileNav(false);
+    });
+    window.addEventListener("resize", function () {
+      if (window.matchMedia("(min-width: 768px)").matches) closeMobileNav(false);
+    });
+
+    toggle.style.touchAction = "manipulation";
   }
   navLinks.forEach(function (link) {
     link.addEventListener("click", function () {

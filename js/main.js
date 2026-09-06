@@ -8,6 +8,8 @@
   var lightbox = document.createElement("div");
   lightbox.className = "image-lightbox";
   lightbox.setAttribute("aria-hidden", "true");
+  lightbox.setAttribute("role", "dialog");
+  lightbox.setAttribute("aria-modal", "true");
 
   var closeBtn = document.createElement("button");
   closeBtn.className = "image-lightbox-close";
@@ -38,6 +40,8 @@
   document.body.appendChild(lightbox);
 
   var isOpen = false;
+  var previousBodyOverflow = "";
+  var previousFocus = null;
   var currentIndex = -1;
   var galleryImages = [];
   var touchStartX = 0;
@@ -63,20 +67,27 @@
   function openLightbox(index, images) {
     galleryImages = images || getGalleryImages();
     if (!galleryImages.length) return;
+    previousFocus = document.activeElement;
+    previousBodyOverflow = document.body.style.overflow;
     setImageByIndex(index);
     lightbox.classList.add("is-open");
     lightbox.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
     isOpen = true;
+    closeBtn.focus({ preventScroll: true });
   }
 
   function closeLightbox() {
     if (!isOpen) return;
     lightbox.classList.remove("is-open");
     lightbox.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
+    document.body.style.overflow = previousBodyOverflow;
     isOpen = false;
     currentIndex = -1;
+    if (previousFocus && typeof previousFocus.focus === "function" && document.contains(previousFocus)) {
+      previousFocus.focus({ preventScroll: true });
+    }
+    previousFocus = null;
   }
 
   function showPrev() {
@@ -137,7 +148,14 @@
   // Keyboard shortcuts for slideshow mode.
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
-      closeLightbox();
+      // Escape should dismiss the currently open image first.  Stop the
+      // event here so the project-page handler below does not also close the
+      // parent subpage on the same key press.
+      if (isOpen) {
+        closeLightbox();
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      }
       return;
     }
     if (!isOpen) return;
@@ -1290,8 +1308,9 @@
   };
 
   function isMobileCanvasMode() {
-    // Column gallery on every viewport: images stack between the red rails.
-    return true;
+    // Keep the touch-friendly column gallery on phones while preserving the
+    // draggable, zoomable infinite canvas on tablets and desktop screens.
+    return window.matchMedia("(max-width: 767px)").matches;
   }
 
   function isTabletCanvasMode() {
@@ -2320,7 +2339,10 @@
     dragState.vx = 0;
     dragState.vy = 0;
     dragState.lockedX = dragState.x;
-    dragState.suppressClickUntil = Date.now() + 80;
+    // A normal click should still open a canvas image.  Suppress clicks only
+    // after the pointer has actually moved (moveCanvasDrag extends this
+    // window to protect against drag-release click synthesis).
+    dragState.suppressClickUntil = 0;
     dragState.dragZoomBoost = 0;
     dragState.pressTarget = 0.98;
     var viewport = getViewportSize();
@@ -2843,8 +2865,14 @@
     canvasWorld.addEventListener(
       "click",
       function (event) {
-        var img = event.target.closest(".canvas-thumb img");
-        if (!img) return;
+        // Treat the whole card (including its 1px border/padding) as the
+        // preview target.  Playwright/WebView click synthesis may target the
+        // button rather than the child image even though the user tapped the
+        // visible card, so resolving the image from the closest card keeps
+        // both paths consistent.
+        var thumb = event.target.closest(".canvas-thumb");
+        var img = thumb && thumb.querySelector("img");
+        if (!thumb || !img) return;
         if (Date.now() < dragState.suppressClickUntil || dragState.dragging) {
           event.preventDefault();
           event.stopPropagation();
