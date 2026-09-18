@@ -2,6 +2,10 @@
   "use strict";
   var host = document.getElementById("glowCursor");
   if (!host) return;
+  if (window.matchMedia("(pointer: coarse)").matches) {
+    host.classList.add("is-fallback");
+    return;
+  }
   var canvas = host.querySelector("canvas");
   if (!canvas) return;
 

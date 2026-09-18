@@ -3,6 +3,13 @@
 
   var root = document.getElementById("liquidEtherBackground");
   if (!root) return;
+  // Touch devices benefit more from responsive scrolling than a full-screen
+  // WebGL simulation. Keep the same dark background while avoiding a costly
+  // shader loop during the initial page load.
+  if (window.matchMedia("(pointer: coarse)").matches) {
+    root.classList.add("is-fallback");
+    return;
+  }
   var canvas = root.querySelector("canvas");
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   var gl = canvas.getContext("webgl", {
