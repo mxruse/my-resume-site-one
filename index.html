@@ -11,7 +11,8 @@
     <link rel="preload" as="image" href="./头像1.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+SC:wght@400;600;700;800;900&family=Oswald:wght@500;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+SC:wght@400;600;700;800;900&family=Oswald:wght@500;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+SC:wght@400;600;700;800;900&family=Oswald:wght@500;700&display=swap" /></noscript>
     <link rel="stylesheet" href="./styles.css" />
     <style id="first-paint-fallback">
       /* Keep the home hero visible before any enhancement script runs. */
@@ -30,7 +31,7 @@
       </div>
     </section>
     <!-- 背景音乐：文件与 index.html 同级；播放失败时由脚本静默处理。 -->
-    <audio id="backgroundMusic" src="./bgm.mp3" loop autoplay preload="auto"></audio>
+    <audio id="backgroundMusic" src="./bgm.mp3" loop preload="none"></audio>
     <button class="music-control" id="musicControl" type="button" title="播放/暂停背景音乐" aria-label="播放背景音乐" aria-pressed="false"><span class="music-control-icon" aria-hidden="true">🔇</span></button>
     <div class="liquid-ether-background" id="liquidEtherBackground" aria-hidden="true"><canvas></canvas></div>
     <div class="glow-cursor" id="glowCursor" aria-hidden="true"><canvas></canvas></div>
@@ -46,11 +47,11 @@
         </nav>
         <div class="hero-content reveal"><div class="hero-kicker"><span class="hero-kicker-dot"></span><span>AI / CODE / VISUAL</span><em>2026</em></div><h1><span class="title-line">毛晓锐</span><span class="title-gradient">无限进步</span></h1><p class="hero-desc">淮南师范学院物理学（师范）专业大一学生。平时喜欢了解 AI，也在尝试用代码和设计把自己的想法做出来。</p><a class="hero-cta liquid-btn" href="#projectHub">看看我做过什么 <span>↗</span></a></div>
         <section class="nft-stage reveal" aria-label="作品轮播"><div class="stage-light"></div><div class="nft-carousel" id="nftCarousel">
-          <article class="nft-card"><img src="./图片1.png" alt="AI视觉作品" /><div class="card-top-info"><img src="./头像1.jpg" alt="头像" /><div><p>Creator</p><h3>MXR Studio</h3></div></div><div class="card-bottom-info"><div><p>Focus</p><h4>AI × CODE</h4></div><a href="#projectHub">MORE +</a></div></article>
-          <article class="nft-card"><img src="./图片2.jpg" alt="数字肖像作品" /><div class="card-top-info"><img src="./头像1.jpg" alt="头像" /><div><p>Creator</p><h3>MXR Studio</h3></div></div><div class="card-bottom-info"><div><p>Focus</p><h4>VISUAL LAB</h4></div><a href="#projectHub">MORE +</a></div></article>
-          <article class="nft-card"><img src="./图片3.jpg" alt="彩虹视觉作品" /><div class="card-top-info"><img src="./头像1.jpg" alt="头像" /><div><p>Creator</p><h3>MXR Studio</h3></div></div><div class="card-bottom-info"><div><p>Focus</p><h4>INFINITE</h4></div><a href="#projectHub">MORE +</a></div></article>
-          <article class="nft-card"><img src="./图片4.jpg" alt="幻想视觉作品" /><div class="card-top-info"><img src="./头像1.jpg" alt="头像" /><div><p>Creator</p><h3>MXR Studio</h3></div></div><div class="card-bottom-info"><div><p>Focus</p><h4>EXPERIMENT</h4></div><a href="#projectHub">MORE +</a></div></article>
-          <article class="nft-card"><img src="./人工智能初识微认证.png" alt="AI认证作品" /><div class="card-top-info"><img src="./头像1.jpg" alt="头像" /><div><p>Creator</p><h3>MXR Studio</h3></div></div><div class="card-bottom-info"><div><p>Focus</p><h4>LEARNING</h4></div><a href="#projectHub">MORE +</a></div></article>
+          <article class="nft-card"><img src="./图片1.png" alt="AI视觉作品" fetchpriority="high" decoding="async" /><div class="card-top-info"><img src="./头像1.jpg" alt="头像" decoding="async" /><div><p>Creator</p><h3>MXR Studio</h3></div></div><div class="card-bottom-info"><div><p>Focus</p><h4>AI × CODE</h4></div><a href="#projectHub">MORE +</a></div></article>
+          <article class="nft-card"><img src="./图片2.jpg" alt="数字肖像作品" loading="lazy" decoding="async" /><div class="card-top-info"><img src="./头像1.jpg" alt="头像" loading="lazy" decoding="async" /><div><p>Creator</p><h3>MXR Studio</h3></div></div><div class="card-bottom-info"><div><p>Focus</p><h4>VISUAL LAB</h4></div><a href="#projectHub">MORE +</a></div></article>
+          <article class="nft-card"><img src="./图片3.jpg" alt="彩虹视觉作品" loading="lazy" decoding="async" /><div class="card-top-info"><img src="./头像1.jpg" alt="头像" loading="lazy" decoding="async" /><div><p>Creator</p><h3>MXR Studio</h3></div></div><div class="card-bottom-info"><div><p>Focus</p><h4>INFINITE</h4></div><a href="#projectHub">MORE +</a></div></article>
+          <article class="nft-card"><img src="./图片4.jpg" alt="幻想视觉作品" loading="lazy" decoding="async" /><div class="card-top-info"><img src="./头像1.jpg" alt="头像" loading="lazy" decoding="async" /><div><p>Creator</p><h3>MXR Studio</h3></div></div><div class="card-bottom-info"><div><p>Focus</p><h4>EXPERIMENT</h4></div><a href="#projectHub">MORE +</a></div></article>
+          <article class="nft-card"><img src="./人工智能初识微认证.png" alt="AI认证作品" loading="lazy" decoding="async" /><div class="card-top-info"><img src="./头像1.jpg" alt="头像" loading="lazy" decoding="async" /><div><p>Creator</p><h3>MXR Studio</h3></div></div><div class="card-bottom-info"><div><p>Focus</p><h4>LEARNING</h4></div><a href="#projectHub">MORE +</a></div></article>
         </div><div class="nft-controls"><button class="nft-nav-btn liquid-btn" id="nftPrevBtn" type="button" aria-label="上一张">‹</button><button class="nft-nav-btn liquid-btn" id="nftNextBtn" type="button" aria-label="下一张">›</button></div></section>
       </div><div class="hero-bottom-fade"></div>
     </header>
@@ -82,7 +83,7 @@
           <div class="game-layout">
             <figure class="game-video-card reveal">
               <div class="game-video-wrap">
-                <video controls preload="metadata" playsinline>
+                <video controls preload="none" playsinline>
                   <source src="./坦克大战游戏展示.mp4" type="video/mp4" />
                   当前浏览器不支持视频播放，请直接打开视频文件查看。
                 </video>
@@ -118,7 +119,7 @@
           </div>
           <div class="certificate-feature reveal">
             <div class="certificate-feature-copy"><p class="certificate-label">代表性证书 / 01</p><h3>人工智能初识微认证</h3><p>从基础概念开始，逐步了解人工智能的应用方式，也让我更愿意继续往下学习。</p><span class="certificate-chip">HUAWEI · MICRO CERTIFICATION</span></div>
-            <button class="certificate-feature-image" type="button" aria-label="放大查看人工智能初识微认证"><img src="./assets/certificates/人工智能初识微认证.png" alt="华为人工智能初识微认证" /></button>
+            <button class="certificate-feature-image" type="button" aria-label="放大查看人工智能初识微认证"><img src="./assets/certificates/人工智能初识微认证.png" alt="华为人工智能初识微认证" loading="lazy" decoding="async" /></button>
           </div>
           <div class="certificate-grid reveal" aria-label="AI证书列表">
             <button class="certificate-card" type="button"><img src="./assets/certificates/证书1.jpg" alt="人工智能训练师证书" /><span>人工智能训练师</span></button>
