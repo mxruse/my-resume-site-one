@@ -55,11 +55,15 @@
   // fixed, animated layer. Handle the completed touch/pointer gesture
   // directly while keeping click for mouse and keyboard activation.
   enterButton.addEventListener("pointerup", function (event) {
-    if (event.pointerType === "touch" || event.pointerType === "pen") {
+    if (event.pointerType !== "mouse") {
       event.preventDefault();
       enterSite();
     }
   });
+  enterButton.addEventListener("touchend", function (event) {
+    event.preventDefault();
+    enterSite();
+  }, { passive: false });
   enterButton.addEventListener("click", enterSite);
 
   control.addEventListener("click", function () {
