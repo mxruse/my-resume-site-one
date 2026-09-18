@@ -7753,9 +7753,11 @@ body.music-welcome-open { overflow: hidden; }
 .music-welcome-subtitle { color: rgba(226, 232, 240, .52); letter-spacing: .16em; }
 
 .music-welcome-enter {
+  position: relative;
+  z-index: 1;
   margin-top: 34px;
   min-width: 150px;
-  min-height: 48px;
+  min-height: 52px;
   padding: 12px 22px;
   border: 1px solid rgba(196, 181, 253, .58);
   border-radius: 999px;
@@ -7764,6 +7766,10 @@ body.music-welcome-open { overflow: hidden; }
   font-size: 14px;
   font-weight: 800;
   cursor: pointer;
+  pointer-events: auto;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
 
 .music-welcome-enter span { margin-left: 8px; font-size: 18px; }

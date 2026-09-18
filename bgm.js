@@ -38,7 +38,7 @@
   audio.addEventListener("pause", function () { setPlayingState(false); });
   audio.addEventListener("error", function () { setPlayingState(false); });
 
-  enterButton.addEventListener("click", function () {
+  function enterSite() {
     if (hasEntered) return;
     hasEntered = true;
     enterButton.disabled = true;
@@ -49,7 +49,18 @@
       welcome.setAttribute("aria-hidden", "true");
       document.body.classList.remove("music-welcome-open");
     }, 720);
+  }
+
+  // Some mobile WebViews delay or swallow synthetic click events on a
+  // fixed, animated layer. Handle the completed touch/pointer gesture
+  // directly while keeping click for mouse and keyboard activation.
+  enterButton.addEventListener("pointerup", function (event) {
+    if (event.pointerType === "touch" || event.pointerType === "pen") {
+      event.preventDefault();
+      enterSite();
+    }
   });
+  enterButton.addEventListener("click", enterSite);
 
   control.addEventListener("click", function () {
     if (audio.paused) {
