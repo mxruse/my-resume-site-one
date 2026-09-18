@@ -26,7 +26,7 @@
         <p class="music-welcome-kicker">MXR STUDIO · PERSONAL RESUME</p>
         <h1 id="musicWelcomeTitle">欢迎来到毛晓锐的个人网站</h1>
         <p class="music-welcome-subtitle">AI · CODE · VISUAL · 无限进步</p>
-        <button class="music-welcome-enter" id="musicWelcomeEnter" type="button">进入网站 <span aria-hidden="true">↗</span></button>
+        <button class="music-welcome-enter" id="musicWelcomeEnter" type="button" onclick="this.disabled=true;var welcomeLayer=document.getElementById('musicWelcome');welcomeLayer.classList.add('is-closing');window.setTimeout(function(){welcomeLayer.classList.add('is-hidden');welcomeLayer.setAttribute('aria-hidden','true');document.body.classList.remove('music-welcome-open')},720)">进入网站 <span aria-hidden="true">↗</span></button>
       </div>
     </section>
     <!-- 背景音乐：文件与 index.html 同级；播放失败时由脚本静默处理。 -->
