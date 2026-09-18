@@ -7847,6 +7847,19 @@ main {
   background: transparent !important;
 }
 
+/* Keep below-the-fold sections out of the first layout/paint pass. Their
+   content remains unchanged and is rendered as the user approaches it. */
+@media (min-width: 768px) {
+  .profile-intro,
+  .light-section,
+  .sports-section,
+  .special-thanks,
+  .footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 900px;
+  }
+}
+
 body::before {
   opacity: .018;
 }
